@@ -36,7 +36,6 @@ export const actions = {
       payload: temperature
     }
   },
-
   addProductToFreezer(name, amount = 20) {
     return {
       type: types.ADD_PRODUCT_TO_FREEZER,
@@ -44,6 +43,14 @@ export const actions = {
         name,
         amount
       }
+    }
+  },
+  doSomething() {
+    return function(dispatch, getState) {
+      dispatch({
+        type: 'BUZZ',
+        payload: getState().freezer.temperature
+      })
     }
   }
 }
