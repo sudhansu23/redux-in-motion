@@ -1,9 +1,10 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { reducer as freezer } from './ducks/freezer'
+import logger from './middleware/logger'
+import logger2 from './middleware/logger2'
 
 const rootReducer = combineReducers({
   freezer,
-  fakeReducer: (state = {hello: 'world'}, action) => state
 })
 
-export default createStore(rootReducer)
+export default createStore(rootReducer, applyMiddleware(logger, logger2))
