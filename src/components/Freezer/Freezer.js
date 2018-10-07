@@ -7,7 +7,6 @@ import Button from '../Button/Button'
 class Freezer extends Component {
 
   render() {
-    console.log('props from Freezer', this.props)
     return (
       <Panel title={`Freezer (°${this.props.temperature || 0}C)`}>
         <Button label="Add product" onClick={this.props.onClickAddProduct} />
