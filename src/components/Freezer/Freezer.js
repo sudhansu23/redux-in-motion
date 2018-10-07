@@ -10,9 +10,13 @@ class Freezer extends Component {
   }
 
   componentDidMount() {
-    store.subscribe(() => this.setState({
+    this.unsubscribe = store.subscribe(() => this.setState({
       flavors: store.getState().freezer.flavors
     }))
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
   }
 
   render() {
