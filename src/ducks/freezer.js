@@ -1,3 +1,5 @@
+import * as FLAVOURS from '../constants/flavors'
+
 export const types = {
   UPDATE_TEMPERATURE: 'UPDATE_TEMPERATURE',
   ADD_PRODUCT_TO_FREEZER: 'ADD_PRODUCT_TO_FREEZER'
@@ -5,7 +7,10 @@ export const types = {
 
 const DEFAULT_STATE = {
   temperature: null,
-  flavors: {}
+  flavors: {
+    [FLAVOURS.STRAWBERRY]: 10,
+    [FLAVOURS.SALTED_CARAMEL]: 20
+  }
 }
 
 export function reducer(state = DEFAULT_STATE, action) {
