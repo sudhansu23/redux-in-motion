@@ -45,6 +45,8 @@ class Freezer extends Component {
     }
   }
 
+  handleClickFlavor = flavorName => store.dispatch(actions.removeScoop(flavorName))
+
   render() {
     return (
       <Panel title={`Freezer (°${this.state.temperature || 0}C)`}>
@@ -57,6 +59,7 @@ class Freezer extends Component {
                 key={flavorName}
                 flavorName={flavorName}
                 onClickRestock={() => this.handleClickRestock(flavorName)}
+                onClickFlavor={() => this.handleClickFlavor(flavorName)}
                 scoops={this.state.flavors[flavorName]}
               />
             ))
